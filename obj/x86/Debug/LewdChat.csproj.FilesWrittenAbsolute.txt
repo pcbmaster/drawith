@@ -4,3 +4,4 @@
 /home/brett/builds/LewdChat/bin/Debug/LewdChat.exe
 /home/brett/builds/LewdChat/obj/x86/Debug/LewdChat.exe
 /home/brett/builds/LewdChat/obj/x86/Debug/LewdChat.exe.mdb
+/home/brett/builds/LewdChat/bin/Debug/Meebey.SmartIrc4net.dll
