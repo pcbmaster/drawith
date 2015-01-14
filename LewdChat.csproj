@@ -51,7 +51,7 @@
     </Reference>
     <Reference Include="Mono.Posix" />
     <Reference Include="Meebey.SmartIrc4net">
-      <HintPath>..\smartirc4net-0.4.5.1\bin\Meebey.SmartIrc4net.dll</HintPath>
+      <HintPath>Meebey.SmartIrc4net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
