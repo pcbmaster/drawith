@@ -161,6 +161,7 @@
                             <property name="CanFocus">True</property>
                             <property name="Events">ButtonMotionMask, ButtonPressMask, ButtonReleaseMask</property>
                             <property name="Alpha">-1</property>
+                            <signal name="ColorSet" handler="OnColorbutton2ColorSet" />
                           </widget>
                           <packing>
                             <property name="Position">0</property>

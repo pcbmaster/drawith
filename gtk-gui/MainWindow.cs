@@ -79,6 +79,7 @@ public partial class MainWindow
 		w2.Fill = false;
 		// Container child vbox4.Gtk.Box+BoxChild
 		this.hbox1 = new global::Gtk.HBox ();
+		this.hbox1.Name = "hbox1";
 		this.hbox1.Spacing = 6;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.vbox2 = new global::Gtk.VBox ();
@@ -262,5 +263,6 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.SendButton.Clicked += new global::System.EventHandler (this.OnSendButtonClicked);
+		this.colorbutton2.ColorSet += new global::System.EventHandler (this.OnColorbutton2ColorSet);
 	}
 }

@@ -53,6 +53,7 @@
     <Reference Include="Meebey.SmartIrc4net">
       <HintPath>Meebey.SmartIrc4net.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Cairo" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
