@@ -9,6 +9,12 @@ public partial class MainWindow
 	
 	private global::Gtk.Action OptionsAction;
 	
+	private global::Gtk.Action addAction;
+	
+	private global::Gtk.Action SettingsAction;
+	
+	private global::Gtk.Action ViewMyKeyAction;
+	
 	private global::Gtk.VBox vbox4;
 	
 	private global::Gtk.MenuBar menubar2;
@@ -59,6 +65,15 @@ public partial class MainWindow
 		this.OptionsAction = new global::Gtk.Action ("OptionsAction", global::Mono.Unix.Catalog.GetString ("Options"), null, null);
 		this.OptionsAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Options");
 		w1.Add (this.OptionsAction, null);
+		this.addAction = new global::Gtk.Action ("addAction", global::Mono.Unix.Catalog.GetString ("Add Friend..."), global::Mono.Unix.Catalog.GetString ("Add other losers to draw with!"), "gtk-add");
+		this.addAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Add Friend...");
+		w1.Add (this.addAction, null);
+		this.SettingsAction = new global::Gtk.Action ("SettingsAction", global::Mono.Unix.Catalog.GetString ("Settings"), null, null);
+		this.SettingsAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Settings");
+		w1.Add (this.SettingsAction, null);
+		this.ViewMyKeyAction = new global::Gtk.Action ("ViewMyKeyAction", global::Mono.Unix.Catalog.GetString ("View my Key"), null, null);
+		this.ViewMyKeyAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("View my Key");
+		w1.Add (this.ViewMyKeyAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -69,7 +84,7 @@ public partial class MainWindow
 		this.vbox4.Name = "vbox4";
 		this.vbox4.Spacing = 6;
 		// Container child vbox4.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar2'><menu name='FriendsListAction' action='FriendsListAction'/><menu name='OptionsAction' action='OptionsAction'/></menubar></ui>");
+		this.UIManager.AddUiFromString ("<ui><menubar name='menubar2'><menu name='FriendsListAction' action='FriendsListAction'><menuitem name='addAction' action='addAction'/></menu><menu name='OptionsAction' action='OptionsAction'><menuitem name='SettingsAction' action='SettingsAction'/><menuitem name='ViewMyKeyAction' action='ViewMyKeyAction'/></menu></menubar></ui>");
 		this.menubar2 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar2")));
 		this.menubar2.Name = "menubar2";
 		this.vbox4.Add (this.menubar2);
@@ -262,7 +277,9 @@ public partial class MainWindow
 		this.DefaultHeight = 697;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.addAction.Activated += new global::System.EventHandler (this.OnAddActionActivated);
 		this.SendButton.Clicked += new global::System.EventHandler (this.OnSendButtonClicked);
 		this.colorbutton2.ColorSet += new global::System.EventHandler (this.OnColorbutton2ColorSet);
+		this.SendCanvasButton.Clicked += new global::System.EventHandler (this.OnSendCanvasButtonClicked);
 	}
 }

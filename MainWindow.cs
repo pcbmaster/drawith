@@ -18,6 +18,12 @@ public partial class MainWindow: Gtk.Window
 	bool isDrawing;
 	bool isDrawingPoint;
 
+	int port;
+	string host_ip;
+	string identKey = "1B53G45!D";
+	string[] trustedKeys = { "testkey" };
+	string partnerKey;
+
 	public static IrcClient irc = new IrcClient();
 	public string channel = "#drawith-test";
 	public string nick = "Minty";
@@ -37,7 +43,28 @@ public partial class MainWindow: Gtk.Window
 					ChatWindow.Buffer.InsertAtCursor ("Connected!\n");
 				}
 				else if (e.Data.Message.Contains("¤")) {
-					System.Console.WriteLine("Image data!");
+					System.Console.WriteLine("Command incoming!");
+					if (e.Data.Message.Contains("OPNP")) {
+						String[] args = e.Data.Message.Split(':');
+						host_ip = args[1];
+						port = System.Convert.ToInt32(args[2]);
+						Console.Out.WriteLine("Request to connect to: " + host_ip + ":" + port.ToString()); 
+					} else if (e.Data.Message.Contains("IDENTPLS")) {
+						irc.SendReply(e.Data, "¤MYKEY:" + identKey);
+					} else if (e.Data.Message.Contains("MYKEY")) {
+						String[] args = e.Data.Message.Split(':');
+						partnerKey = args[1];
+						foreach(String s in trustedKeys) {
+							if(s.Equals(partnerKey)) {
+								channel = "#";
+								foreach(char c in partnerKey) {
+									channel += (char) (c ^ 1);
+								}
+								irc.SendReply(e.Data, "¤OK:" + channel);
+								irc.RfcJoin(channel);
+							}
+						}
+					}
 				}
 				else {
 					ChatWindow.Buffer.InsertAtCursor ("< " + e.Data.Nick + "> " + e.Data.Message + "\n");
@@ -188,7 +215,7 @@ public partial class MainWindow: Gtk.Window
 		}
 		try {
 			irc.Login (nick, realname);
-			irc.RfcJoin (channel);
+			//irc.RfcJoin (channel);
 			irc.Listen ();
 		} catch (ConnectionException) {
 		}
@@ -196,7 +223,7 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnSendCanvasButtonClicked (object sender, EventArgs e)
 	{
-
+		Console.Out.WriteLine(surface.Data.GetType ());
 	}
 
 	protected void OnColorbutton2ColorSet (object sender, EventArgs e)
@@ -209,5 +236,12 @@ public partial class MainWindow: Gtk.Window
 		return new Cairo.Color ((double)color.Red / ushort.MaxValue, 
 			(double)color.Green / ushort.MaxValue, (double)color.Blue / 
 			ushort.MaxValue); 
-	} 
+	}
+
+	protected void OnAddActionActivated (object sender, EventArgs e)
+	{
+		FriendDialog fd = new FriendDialog ();
+		fd.Show ();
+	}
+
 }

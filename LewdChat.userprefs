@@ -1,13 +1,27 @@
-﻿<Properties>
+﻿<Properties StartupItem="LewdChat.csproj" GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Properties/FriendDialog.cs">
     <Files>
+      <File FileName="MainWindow.cs" Line="14" Column="14" />
       <File FileName="Program.cs" Line="1" Column="1" />
-      <File FileName="MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Properties/FriendDialog.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="LewdChat" expanded="True">
+            <Node name="MainWindow.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/brett/builds/LewdChat/MainWindow.cs" line="56" column="1" />
+      <Breakpoint file="/home/brett/builds/LewdChat/MainWindow.cs" line="226" column="1" />
+      <Breakpoint file="/home/brett/builds/LewdChat/MainWindow.cs" line="64" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
