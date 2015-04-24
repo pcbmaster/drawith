@@ -5,3 +5,10 @@
 /home/brett/builds/LewdChat/obj/x86/Debug/LewdChat.exe
 /home/brett/builds/LewdChat/obj/x86/Debug/LewdChat.exe.mdb
 /home/brett/builds/LewdChat/bin/Debug/Meebey.SmartIrc4net.dll
+/home/brett/builds/drawith/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/brett/builds/drawith/obj/x86/Debug/LewdChat.gtk-gui.gui.stetic
+/home/brett/builds/drawith/bin/Debug/LewdChat.exe.mdb
+/home/brett/builds/drawith/bin/Debug/LewdChat.exe
+/home/brett/builds/drawith/obj/x86/Debug/LewdChat.exe
+/home/brett/builds/drawith/obj/x86/Debug/LewdChat.exe.mdb
+/home/brett/builds/drawith/bin/Debug/Meebey.SmartIrc4net.dll
