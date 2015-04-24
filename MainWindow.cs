@@ -29,10 +29,10 @@ public partial class MainWindow: Gtk.Window
 	public string nick = "Minty";
 	public string realname = "MintyCat";
 
-	public void Scroll2(object sender, Gtk.SizeAllocatedArgs e)
-	{
-		ChatWindow.ScrollToIter(ChatWindow.Buffer.EndIter, 0, false, 0, 0);
-	}
+//	public void Scroll2(object sender, Gtk.SizeAllocatedArgs e)
+//	{
+//		ChatWindow.ScrollToIter(ChatWindow.Buffer.EndIter, 0, false, 0, 0);
+//	}
 
 	public void OnRawMessage(object sender, IrcEventArgs e)
 	{
@@ -40,8 +40,8 @@ public partial class MainWindow: Gtk.Window
 		Gtk.Application.Invoke (delegate {
 			if(e.Data.Nick != null) {
 				if(e.Data.Nick == nick) {
-					ChatWindow.Buffer.InsertAtCursor ("Connected!\n");
-				}
+//					ChatWindow.Buffer.InsertAtCursor ("Connected!\n");
+			}
 				else if (e.Data.Message.Contains("¤")) {
 					System.Console.WriteLine("Command incoming!");
 					if (e.Data.Message.Contains("OPNP")) {
@@ -66,9 +66,9 @@ public partial class MainWindow: Gtk.Window
 						}
 					}
 				}
-				else {
-					ChatWindow.Buffer.InsertAtCursor ("< " + e.Data.Nick + "> " + e.Data.Message + "\n");
-				}
+//				else {
+//					ChatWindow.Buffer.InsertAtCursor ("< " + e.Data.Nick + "> " + e.Data.Message + "\n");
+//				}
 			}
 		});
 	}
@@ -77,18 +77,10 @@ public partial class MainWindow: Gtk.Window
 	{
 		Build ();
 		Thread _IRCTHREAD = new Thread (new ThreadStart (IRCthread));
-		ChatWindow.SizeAllocated += new SizeAllocatedHandler (Scroll2);
-		ChatWindow.WrapMode = WrapMode.Word;
+//		ChatWindow.SizeAllocated += new SizeAllocatedHandler (Scroll2);
+//		ChatWindow.WrapMode = WrapMode.Word;
 		surface = new ImageSurface (Format.Argb32, 300, 300);
-		area = SendingCanvas;
-		area.AddEvents (
-			(int)Gdk.EventMask.PointerMotionMask
-			| (int)Gdk.EventMask.ButtonPressMask
-			| (int)Gdk.EventMask.ButtonReleaseMask);
-		area.ExposeEvent += OnDrawingAreaExposed;
-		area.ButtonPressEvent += OnMousePress;
-		area.ButtonReleaseEvent += OnMouseRelease;
-		area.MotionNotifyEvent += OnMouseMotion;
+//		area = SendingCanvas;
 		DeleteEvent += delegate { Application.Quit(); };
 
 		Painter = new DrawShape(DrawPoint);
@@ -196,9 +188,9 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnSendButtonClicked (object sender, EventArgs e)
 	{
-		irc.SendMessage (SendType.Message, channel, ChatEntry.Text);
-		ChatWindow.Buffer.InsertAtCursor ("< " + nick + "> " + ChatEntry.Text + "\n");
-		ChatEntry.Text = "";
+//		irc.SendMessage (SendType.Message, channel, ChatEntry.Text);
+//		ChatWindow.Buffer.InsertAtCursor ("< " + nick + "> " + ChatEntry.Text + "\n");
+//		ChatEntry.Text = "";
 	}
 
 	void IRCthread(){
@@ -210,7 +202,7 @@ public partial class MainWindow: Gtk.Window
 			irc.Connect (serverlist, port);
 		} catch (ConnectionException e) {
 			Gtk.Application.Invoke (delegate {
-				ChatWindow.Buffer.InsertAtCursor("Couldn't connect to server! Reason:" + e.Message);
+//				ChatWindow.Buffer.InsertAtCursor("Couldn't connect to server! Reason:" + e.Message);
 			});
 		}
 		try {
@@ -226,11 +218,6 @@ public partial class MainWindow: Gtk.Window
 		Console.Out.WriteLine(surface.Data.GetType ());
 	}
 
-	protected void OnColorbutton2ColorSet (object sender, EventArgs e)
-	{
-		penColor = ToCairoColor(colorbutton2.Color);
-	}
-
 	Cairo.Color ToCairoColor (Gdk.Color color) 
 	{ 
 		return new Cairo.Color ((double)color.Red / ushort.MaxValue, 
@@ -238,10 +225,15 @@ public partial class MainWindow: Gtk.Window
 			ushort.MaxValue); 
 	}
 
-	protected void OnAddActionActivated (object sender, EventArgs e)
+	protected void OnAddFriendActivated (object sender, EventArgs e)
 	{
-		FriendDialog fd = new FriendDialog ();
-		fd.Show ();
+		Add_Friend af = new Add_Friend ();
+		af.Show ();
+		af.Response += delegate (object o, ResponseArgs args) {
+			if (args.ResponseId == ResponseType.Ok) {
+				System.Console.Out.WriteLine (af.Username);
+				System.Console.Out.WriteLine (af.Greeting);
+			}
+		};
 	}
-
 }

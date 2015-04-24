@@ -15,43 +15,35 @@ public partial class MainWindow
 	
 	private global::Gtk.Action ViewMyKeyAction;
 	
-	private global::Gtk.VBox vbox4;
+	private global::Gtk.Action ContactsAction;
 	
-	private global::Gtk.MenuBar menubar2;
+	private global::Gtk.Action newAction;
 	
-	private global::Gtk.HBox hbox1;
+	private global::Gtk.Action removeAction;
 	
-	private global::Gtk.VBox vbox2;
+	private global::Gtk.Action SettingsAction1;
 	
-	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+	private global::Gtk.Action findAction;
 	
-	private global::Gtk.TextView ChatWindow;
+	private global::Gtk.Action editAction1;
 	
-	private global::Gtk.HBox hbox2;
+	private global::Gtk.Action editAction;
 	
-	private global::Gtk.Entry ChatEntry;
+	private global::Gtk.Action propertiesAction1;
 	
-	private global::Gtk.Button SendButton;
-	
-	private global::Gtk.VBox vbox3;
-	
-	private global::Gtk.DrawingArea RecieveCanvas;
-	
-	private global::Gtk.HBox hbox3;
-	
-	private global::Gtk.DrawingArea SendingCanvas;
+	private global::Gtk.Action propertiesAction2;
 	
 	private global::Gtk.VBox vbox1;
 	
-	private global::Gtk.ColorButton colorbutton2;
+	private global::Gtk.MenuBar menubar1;
 	
-	private global::Gtk.Button PencilButton;
+	private global::Gtk.TreeView FriendList;
 	
-	private global::Gtk.Button EraserButton;
+	private global::Gtk.Statusbar statusbar1;
 	
-	private global::Gtk.HScale ToolSize;
+	private global::Gtk.Label StatusLabel;
 	
-	private global::Gtk.Button SendCanvasButton;
+	private global::Gtk.Image StatusIcon;
 
 	protected virtual void Build ()
 	{
@@ -74,212 +66,95 @@ public partial class MainWindow
 		this.ViewMyKeyAction = new global::Gtk.Action ("ViewMyKeyAction", global::Mono.Unix.Catalog.GetString ("View my Key"), null, null);
 		this.ViewMyKeyAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("View my Key");
 		w1.Add (this.ViewMyKeyAction, null);
+		this.ContactsAction = new global::Gtk.Action ("ContactsAction", global::Mono.Unix.Catalog.GetString ("Contacts"), null, null);
+		this.ContactsAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Contacts");
+		w1.Add (this.ContactsAction, null);
+		this.newAction = new global::Gtk.Action ("newAction", global::Mono.Unix.Catalog.GetString ("Add Friend"), null, "gtk-new");
+		this.newAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Add Friend");
+		w1.Add (this.newAction, null);
+		this.removeAction = new global::Gtk.Action ("removeAction", global::Mono.Unix.Catalog.GetString ("Delete Friend"), null, "gtk-remove");
+		this.removeAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Delete Friend");
+		w1.Add (this.removeAction, null);
+		this.SettingsAction1 = new global::Gtk.Action ("SettingsAction1", global::Mono.Unix.Catalog.GetString ("Settings"), null, null);
+		this.SettingsAction1.ShortLabel = global::Mono.Unix.Catalog.GetString ("Settings");
+		w1.Add (this.SettingsAction1, null);
+		this.findAction = new global::Gtk.Action ("findAction", global::Mono.Unix.Catalog.GetString ("See Secret Key"), null, "gtk-find");
+		this.findAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("See Secret Key");
+		w1.Add (this.findAction, null);
+		this.editAction1 = new global::Gtk.Action ("editAction1", global::Mono.Unix.Catalog.GetString ("Change Name"), null, "gtk-edit");
+		this.editAction1.ShortLabel = global::Mono.Unix.Catalog.GetString ("Change Name");
+		w1.Add (this.editAction1, null);
+		this.editAction = new global::Gtk.Action ("editAction", global::Mono.Unix.Catalog.GetString ("Edit Friend"), null, "gtk-edit");
+		this.editAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Edit Friend");
+		w1.Add (this.editAction, null);
+		this.propertiesAction1 = new global::Gtk.Action ("propertiesAction1", global::Mono.Unix.Catalog.GetString ("Notification"), null, "gtk-properties");
+		this.propertiesAction1.ShortLabel = global::Mono.Unix.Catalog.GetString ("Notification");
+		w1.Add (this.propertiesAction1, null);
+		this.propertiesAction2 = new global::Gtk.Action ("propertiesAction2", global::Mono.Unix.Catalog.GetString ("Interface"), null, "gtk-properties");
+		this.propertiesAction2.ShortLabel = global::Mono.Unix.Catalog.GetString ("Interface");
+		w1.Add (this.propertiesAction2, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.vbox4 = new global::Gtk.VBox ();
-		this.vbox4.Name = "vbox4";
-		this.vbox4.Spacing = 6;
-		// Container child vbox4.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar2'><menu name='FriendsListAction' action='FriendsListAction'><menuitem name='addAction' action='addAction'/></menu><menu name='OptionsAction' action='OptionsAction'><menuitem name='SettingsAction' action='SettingsAction'/><menuitem name='ViewMyKeyAction' action='ViewMyKeyAction'/></menu></menubar></ui>");
-		this.menubar2 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar2")));
-		this.menubar2.Name = "menubar2";
-		this.vbox4.Add (this.menubar2);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.menubar2]));
-		w2.Position = 0;
-		w2.Expand = false;
-		w2.Fill = false;
-		// Container child vbox4.Gtk.Box+BoxChild
-		this.hbox1 = new global::Gtk.HBox ();
-		this.hbox1.Name = "hbox1";
-		this.hbox1.Spacing = 6;
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.vbox2 = new global::Gtk.VBox ();
-		this.vbox2.Name = "vbox2";
-		this.vbox2.Spacing = 6;
-		// Container child vbox2.Gtk.Box+BoxChild
-		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
-		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.ChatWindow = new global::Gtk.TextView ();
-		this.ChatWindow.Buffer.Text = "##LewdChat A1##\n";
-		this.ChatWindow.CanFocus = true;
-		this.ChatWindow.Name = "ChatWindow";
-		this.ChatWindow.Editable = false;
-		this.ChatWindow.CursorVisible = false;
-		this.ChatWindow.AcceptsTab = false;
-		this.ChatWindow.PixelsInsideWrap = 5;
-		this.GtkScrolledWindow.Add (this.ChatWindow);
-		this.vbox2.Add (this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.GtkScrolledWindow]));
-		w4.Position = 0;
-		// Container child vbox2.Gtk.Box+BoxChild
-		this.hbox2 = new global::Gtk.HBox ();
-		this.hbox2.Name = "hbox2";
-		this.hbox2.Spacing = 6;
-		// Container child hbox2.Gtk.Box+BoxChild
-		this.ChatEntry = new global::Gtk.Entry ();
-		this.ChatEntry.CanFocus = true;
-		this.ChatEntry.Name = "ChatEntry";
-		this.ChatEntry.IsEditable = true;
-		this.ChatEntry.InvisibleChar = '●';
-		this.hbox2.Add (this.ChatEntry);
-		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.ChatEntry]));
-		w5.Position = 0;
-		// Container child hbox2.Gtk.Box+BoxChild
-		this.SendButton = new global::Gtk.Button ();
-		this.SendButton.CanFocus = true;
-		this.SendButton.Name = "SendButton";
-		this.SendButton.UseUnderline = true;
-		this.SendButton.Label = global::Mono.Unix.Catalog.GetString ("Send");
-		global::Gtk.Image w6 = new global::Gtk.Image ();
-		w6.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-go-forward", global::Gtk.IconSize.Menu);
-		this.SendButton.Image = w6;
-		this.hbox2.Add (this.SendButton);
-		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.SendButton]));
-		w7.Position = 1;
-		w7.Expand = false;
-		w7.Fill = false;
-		this.vbox2.Add (this.hbox2);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox2]));
-		w8.Position = 1;
-		w8.Expand = false;
-		w8.Fill = false;
-		this.hbox1.Add (this.vbox2);
-		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vbox2]));
-		w9.Position = 0;
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.vbox3 = new global::Gtk.VBox ();
-		this.vbox3.Name = "vbox3";
-		this.vbox3.Spacing = 6;
-		// Container child vbox3.Gtk.Box+BoxChild
-		this.RecieveCanvas = new global::Gtk.DrawingArea ();
-		this.RecieveCanvas.WidthRequest = 300;
-		this.RecieveCanvas.HeightRequest = 300;
-		this.RecieveCanvas.Name = "RecieveCanvas";
-		this.vbox3.Add (this.RecieveCanvas);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.RecieveCanvas]));
-		w10.Position = 0;
-		// Container child vbox3.Gtk.Box+BoxChild
-		this.hbox3 = new global::Gtk.HBox ();
-		this.hbox3.Name = "hbox3";
-		this.hbox3.Spacing = 6;
-		// Container child hbox3.Gtk.Box+BoxChild
-		this.SendingCanvas = new global::Gtk.DrawingArea ();
-		this.SendingCanvas.WidthRequest = 300;
-		this.SendingCanvas.HeightRequest = 300;
-		this.SendingCanvas.Name = "SendingCanvas";
-		this.hbox3.Add (this.SendingCanvas);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.SendingCanvas]));
-		w11.Position = 0;
-		// Container child hbox3.Gtk.Box+BoxChild
 		this.vbox1 = new global::Gtk.VBox ();
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.colorbutton2 = new global::Gtk.ColorButton ();
-		this.colorbutton2.CanFocus = true;
-		this.colorbutton2.Events = ((global::Gdk.EventMask)(784));
-		this.colorbutton2.Name = "colorbutton2";
-		this.vbox1.Add (this.colorbutton2);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.colorbutton2]));
-		w12.Position = 0;
-		w12.Expand = false;
-		w12.Fill = false;
+		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='ContactsAction' action='ContactsAction'><menuitem name='newAction' action='newAction'/><menuitem name='removeAction' action='removeAction'/><menuitem name='editAction' action='editAction'/></menu><menu name='SettingsAction1' action='SettingsAction1'><menuitem name='findAction' action='findAction'/><menuitem name='editAction1' action='editAction1'/><menuitem name='propertiesAction1' action='propertiesAction1'/><menuitem name='propertiesAction2' action='propertiesAction2'/></menu></menubar></ui>");
+		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
+		this.menubar1.Name = "menubar1";
+		this.vbox1.Add (this.menubar1);
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.menubar1]));
+		w2.Position = 0;
+		w2.Expand = false;
+		w2.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.PencilButton = new global::Gtk.Button ();
-		this.PencilButton.CanFocus = true;
-		this.PencilButton.Name = "PencilButton";
-		this.PencilButton.UseUnderline = true;
-		this.PencilButton.Label = global::Mono.Unix.Catalog.GetString ("Pencil");
-		global::Gtk.Image w13 = new global::Gtk.Image ();
-		w13.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-edit", global::Gtk.IconSize.Menu);
-		this.PencilButton.Image = w13;
-		this.vbox1.Add (this.PencilButton);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.PencilButton]));
-		w14.Position = 1;
-		w14.Expand = false;
-		w14.Fill = false;
+		this.FriendList = new global::Gtk.TreeView ();
+		this.FriendList.CanFocus = true;
+		this.FriendList.Name = "FriendList";
+		this.FriendList.EnableSearch = false;
+		this.vbox1.Add (this.FriendList);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.FriendList]));
+		w3.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.EraserButton = new global::Gtk.Button ();
-		this.EraserButton.CanFocus = true;
-		this.EraserButton.Name = "EraserButton";
-		this.EraserButton.UseUnderline = true;
-		this.EraserButton.Label = global::Mono.Unix.Catalog.GetString ("Eraser");
-		global::Gtk.Image w15 = new global::Gtk.Image ();
-		w15.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-clear", global::Gtk.IconSize.Menu);
-		this.EraserButton.Image = w15;
-		this.vbox1.Add (this.EraserButton);
-		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.EraserButton]));
-		w16.Position = 2;
-		w16.Expand = false;
-		w16.Fill = false;
-		// Container child vbox1.Gtk.Box+BoxChild
-		this.ToolSize = new global::Gtk.HScale (null);
-		global::Gtk.Tooltips w17 = new Gtk.Tooltips ();
-		w17.SetTip (this.ToolSize, "Tool Size", "Tool Size");
-		this.ToolSize.CanFocus = true;
-		this.ToolSize.Name = "ToolSize";
-		this.ToolSize.Adjustment.Lower = 1;
-		this.ToolSize.Adjustment.Upper = 15;
-		this.ToolSize.Adjustment.PageIncrement = 10;
-		this.ToolSize.Adjustment.StepIncrement = 1;
-		this.ToolSize.Adjustment.Value = 1;
-		this.ToolSize.DrawValue = true;
-		this.ToolSize.Digits = 0;
-		this.ToolSize.ValuePos = ((global::Gtk.PositionType)(2));
-		this.vbox1.Add (this.ToolSize);
-		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.ToolSize]));
-		w18.Position = 3;
-		w18.Expand = false;
-		w18.Fill = false;
-		this.hbox3.Add (this.vbox1);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.vbox1]));
-		w19.Position = 1;
-		w19.Expand = false;
-		w19.Fill = false;
-		this.vbox3.Add (this.hbox3);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.hbox3]));
-		w20.Position = 1;
-		w20.Expand = false;
-		w20.Fill = false;
-		// Container child vbox3.Gtk.Box+BoxChild
-		this.SendCanvasButton = new global::Gtk.Button ();
-		this.SendCanvasButton.CanFocus = true;
-		this.SendCanvasButton.Name = "SendCanvasButton";
-		this.SendCanvasButton.UseUnderline = true;
-		this.SendCanvasButton.Label = global::Mono.Unix.Catalog.GetString ("Send Canvas");
-		global::Gtk.Image w21 = new global::Gtk.Image ();
-		w21.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-go-forward", global::Gtk.IconSize.Menu);
-		this.SendCanvasButton.Image = w21;
-		this.vbox3.Add (this.SendCanvasButton);
-		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.SendCanvasButton]));
-		w22.Position = 2;
-		w22.Expand = false;
-		w22.Fill = false;
-		this.hbox1.Add (this.vbox3);
-		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vbox3]));
-		w23.Position = 1;
-		w23.Expand = false;
-		w23.Fill = false;
-		this.vbox4.Add (this.hbox1);
-		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.hbox1]));
-		w24.Position = 1;
-		this.Add (this.vbox4);
+		this.statusbar1 = new global::Gtk.Statusbar ();
+		this.statusbar1.Name = "statusbar1";
+		this.statusbar1.Spacing = 6;
+		// Container child statusbar1.Gtk.Box+BoxChild
+		this.StatusLabel = new global::Gtk.Label ();
+		this.StatusLabel.Name = "StatusLabel";
+		this.StatusLabel.LabelProp = global::Mono.Unix.Catalog.GetString ("Not Connected");
+		this.statusbar1.Add (this.StatusLabel);
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.StatusLabel]));
+		w4.Position = 1;
+		w4.Expand = false;
+		w4.Fill = false;
+		// Container child statusbar1.Gtk.Box+BoxChild
+		this.StatusIcon = new global::Gtk.Image ();
+		this.StatusIcon.Name = "StatusIcon";
+		this.StatusIcon.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-disconnect", global::Gtk.IconSize.Menu);
+		this.statusbar1.Add (this.StatusIcon);
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.StatusIcon]));
+		w5.Position = 2;
+		w5.Expand = false;
+		w5.Fill = false;
+		this.vbox1.Add (this.statusbar1);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
+		w6.Position = 2;
+		w6.Expand = false;
+		w6.Fill = false;
+		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 1048;
-		this.DefaultHeight = 697;
+		this.DefaultWidth = 290;
+		this.DefaultHeight = 424;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
-		this.addAction.Activated += new global::System.EventHandler (this.OnAddActionActivated);
-		this.SendButton.Clicked += new global::System.EventHandler (this.OnSendButtonClicked);
-		this.colorbutton2.ColorSet += new global::System.EventHandler (this.OnColorbutton2ColorSet);
-		this.SendCanvasButton.Clicked += new global::System.EventHandler (this.OnSendCanvasButtonClicked);
+		//this.addAction.Activated += new global::System.EventHandler (this.OnAddActionActivated);
+		this.newAction.Activated += new global::System.EventHandler (this.OnAddFriendActivated);
 	}
 }
